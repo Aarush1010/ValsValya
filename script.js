@@ -63,7 +63,7 @@ function updateCart() {
 
       // Add product image, name, and price
       itemElement.innerHTML = `
-        <img src="images/${item.name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${item.name}">
+        <img src="${item.name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${item.name}">
         <div class="cart-item-details">
           <p>${item.name}</p>
           <p>$${item.price.toFixed(2)}</p>
