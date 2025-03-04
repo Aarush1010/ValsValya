@@ -51,7 +51,6 @@ function updateCart() {
 
   if (cartCount) {
     cartCount.textContent = cart.length; // Update cart counter
-    console.log('Cart counter updated:', cart.length); // Debugging
   }
 
   if (cartItems && cartTotal) {
@@ -61,18 +60,22 @@ function updateCart() {
     cart.forEach(item => {
       const itemElement = document.createElement('div');
       itemElement.className = 'cart-item';
+
+      // Add product image, name, and price
       itemElement.innerHTML = `
-        <p>${item.name} - $${item.price.toFixed(2)}</p>
+        <img src="images/${item.name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${item.name}">
+        <div class="cart-item-details">
+          <p>${item.name}</p>
+          <p>$${item.price.toFixed(2)}</p>
+        </div>
       `;
       cartItems.appendChild(itemElement);
       total += item.price;
     });
 
     cartTotal.textContent = total.toFixed(2);
-    console.log('Cart items updated:', cart); // Debugging
   }
 }
-
 // Animate Cart Icon
 function animateCartIcon() {
   const cartIcon = document.querySelector('.fa-shopping-cart');
